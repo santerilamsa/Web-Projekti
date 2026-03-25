@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Numeropeli</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="code.js" defer></script>
 </head>
 <body>
-    <h1>Hello</h1>
+ <body>
+  <!-- Header pysyy ylhäällä -->
+  <header>
+    <div class="header-container">
+      <h1>English Learn Fun</h1>
+      <nav>
+        <ul>
+            <li><a href="../index.html" class="info-btn">Etusivu</a></li>
+          <li class="dropdown">
+            <button class="dropbtn">Pelit</button>
+            <div class="dropdown-content">
+              <a href="../Peli1_Santeri/index.html">Peli 1, Santeri</a>
+              <a href="../Peli2_Amalia/index.html">Peli 2, Amalia</a>
+              <a href="../Peli3_Nea/index.html">Peli 3, Nea</a>
+            </div>
+          </li>
+          <li>
+            <a href="/Pisteiden_keräys/index.html" class="info-btn">Pisteet</a>
+          </li>
+          <li>
+            <a href="/Infosivu/index.html" class="info-btn">Info</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Peli tulee tänne -->
+  <main style="margin-top: 30px; margin-bottom: 80px;">
+   <div id="game-container">
+    <p>Kierros <span id="round-number">1</span>/8</p>
+    <p>Mikä on englanniksi numero: <span id="number-display">1</span>?</p>
+
+    <div id="options-container"></div>
+
+    <button onclick="checkAnswer()">Tarkista</button>
+    <div id="message"></div>
+    <button onclick="nextNumber()" style="margin-top:15px;">Seuraava numero</button>
+</div>
+  </main>
+
+  <!-- Footer pysyy alhaalla -->
+  <footer>
+    <h2>Hellooo</h2>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </body>
 </html>
