@@ -7,6 +7,31 @@
   <link rel="stylesheet" href="../Peli3_Nea/style.css" />
 </head>
 <body>
+<header>
+  <div class="header-container">
+    <h1>English Learn Fun</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html" class="info-btn">Etusivu</a></li>
+         <li>
+          <a href="Infosivu/index.html" class="info-btn">Info</a>
+        </li>
+        <li class="dropdown">
+          <button class="dropbtn">Pelit</button>
+          <div class="dropdown-content">
+            <a href="../Peli1_Santeri/index.html">Peli 1, Numeropeli</a>
+            <a href="../Peli2_Amalia/index.html">Peli 2, Väripeli</a>
+            <a href="../Peli3_Nea/index.html">Peli 3, Eläinpeli</a>
+          </div>
+        </li>
+        
+        <li>
+            <a href="Pisteiden_keräys/index.html" class="info-btn">Pisteet</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
   <div class="game-container">
     <h1>Learn English fun</h1>
     <p class="instruction">
@@ -20,11 +45,7 @@
 
     <div class="animal-card">
       <div class="animal-image-area" id="animalImageArea">
-        <!-- 
-          LISÄÄ ELÄINKUVA TÄHÄN:
-          JavaScript vaihtaa tähän eläimen kuvan.
-          Jos et vielä lisää kuvia, näkyy emoji varalla.
-        -->
+        
         <img id="animalImage" src="" alt="Animal" class="animal-image hidden" />
          <div id="animalEmoji" class="animal-emoji">🐶</div>
       </div>

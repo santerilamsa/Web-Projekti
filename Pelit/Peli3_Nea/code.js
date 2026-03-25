@@ -49,7 +49,7 @@ let score = 0;
 let currentAnimal = null;
 let remainingAnimals = [];
 
-/* 🔀 Sekoittaa taulukon oikein */
+
 function shuffleArray(array) {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
@@ -59,12 +59,12 @@ function shuffleArray(array) {
   return newArray;
 }
 
-/* 🔁 Luo uusi eläinlista */
+
 function resetAnimalList() {
   remainingAnimals = shuffleArray([...animals]);
 }
 
-/* 🎯 Vastausvaihtoehdot */
+
 function getOptions(correctAnswer) {
   const wrongAnswers = animals
     .filter(animal => animal.english !== correctAnswer)
@@ -80,7 +80,6 @@ function getOptions(correctAnswer) {
   ]);
 }
 
-/* 🐾 Näyttää eläimen */
 function showAnimal(animal) {
   currentAnimal = animal;
 
@@ -99,7 +98,6 @@ function showAnimal(animal) {
   };
 }
 
-/* 🔘 Näyttää napit */
 function showOptions() {
   optionsContainer.innerHTML = "";
   feedbackElement.textContent = "";
@@ -116,7 +114,6 @@ function showOptions() {
   });
 }
 
-/* ✅ Tarkistaa vastauksen */
 function checkAnswer(selectedAnswer, selectedButton) {
   const allButtons = document.querySelectorAll(".option-btn");
 
@@ -139,7 +136,6 @@ function checkAnswer(selectedAnswer, selectedButton) {
   }
 }
 
-/* ➡️ Seuraava kierros */
 function nextRound() {
   if (remainingAnimals.length === 0) {
     optionsContainer.innerHTML = "";
@@ -158,7 +154,7 @@ function nextRound() {
   showOptions();
 }
 
-/* 🔄 Uudelleenkäynnistys */
+
 function restartGame() {
   score = 0;
   scoreElement.textContent = score;
@@ -169,10 +165,10 @@ function restartGame() {
   nextRound();
 }
 
-/* 🎮 Eventit */
+
 nextButton.addEventListener("click", nextRound);
 restartButton.addEventListener("click", restartGame);
 
-/* 🚀 Aloitus */
+
 resetAnimalList();
 nextRound();
