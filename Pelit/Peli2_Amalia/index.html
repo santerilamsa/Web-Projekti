@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Learn English Fun</title>
+    <link rel="stylesheet" href="../Peli2_Amalia/style.css">
 </head>
 <body>
-    
+
+    <div class="top-bar">
+        <h1>LEARN ENGLISH FUN</h1>
+    </div>
+
+    <div class="game-container">
+        <h2>Harjoittele värejä englanniksi</h2>
+
+        <div id="colorBall"></div>
+
+        <div class="buttons">
+            <button onclick="checkAnswer(0)" id="btn1"></button>
+            <button onclick="checkAnswer(1)" id="btn2"></button>
+        </div>
+
+        <p id="result"></p>
+        <p id="score"></p>
+
+        <button id="restartBtn" onclick="restartGame()" style="display:none;">
+            Pelaa uudestaan
+        </button>
+    </div>
+
+    <div class="bottom-bar"></div>
+
+    <script src="../Peli2_Amalia/code.js" defer></script>
 </body>
 </html>
