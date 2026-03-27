@@ -23,12 +23,17 @@ function nextQuestion() {
         document.getElementById("question").innerText = "Peli ohi!";
         document.getElementById("answers").innerHTML = "";
         document.getElementById("feedback").innerText = "";
-        document.getElementById("score").innerText = "Pisteesi: " + score + "/10";
+
+        const scoreBox = document.getElementById("score");
+        scoreBox.style.display = "block";
+        scoreBox.innerText = "Pisteesi: " + score + "/10";
+
         document.getElementById("restart-btn").style.display = "inline-block";
         return;
     }
 
     round++;
+
     const correct = numbers[Math.floor(Math.random() * numbers.length)];
 
     document.getElementById("question").innerText =
@@ -51,22 +56,24 @@ function nextQuestion() {
         btn.innerText = option.word;
 
         btn.onclick = () => {
-            // Näytetään palaute
+            const fb = document.getElementById("feedback");
+
             if (option.word === correct.word) {
                 score++;
-                document.getElementById("feedback").innerText = "Oikein!";
+                fb.innerText = "Oikein!";
             } else {
-                document.getElementById("feedback").innerText =
-                    "Väärin! Oikea vastaus oli: " + correct.word;
+                fb.innerText = "Väärin! Oikea vastaus oli: " + correct.word;
             }
 
-            document.getElementById("score").innerText =
-                "Pisteesi: " + score + "/10";
+            const scoreBox = document.getElementById("score");
+            scoreBox.style.display = "block";
+            scoreBox.innerText = "Pisteesi: " + score + "/10";
 
             answersDiv.innerHTML = "";
 
             const nextBtn = document.createElement("button");
             nextBtn.innerText = "Seuraava kysymys";
+            nextBtn.classList.add("next-question-btn");
             nextBtn.onclick = nextQuestion;
             answersDiv.appendChild(nextBtn);
         };
@@ -78,7 +85,16 @@ function nextQuestion() {
 function restartGame() {
     round = 0;
     score = 0;
+
+    const scoreBox = document.getElementById("score");
+    scoreBox.style.display = "none";
+
+    document.getElementById("feedback").innerText = "";
+    document.getElementById("question").innerText = "";
+    document.getElementById("answers").innerHTML = "";
+
     document.getElementById("restart-btn").style.display = "none";
+
     nextQuestion();
 }
 

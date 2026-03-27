@@ -8,9 +8,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url("Images/numeroita.jpg"); /* KUVA TÄHÄN */
-    background-size: cover;       /* kuva täyttää laatikon */
-    background-position: center;  /* keskittää kuvan */
+    background-image: url("Images/numeroita.jpg");
+    background-size: cover;  
+    background-position: center; 
     background-repeat: no-repeat;
 }
 
@@ -141,57 +141,62 @@ footer {
 }
 
 main {
-    margin-top: 30px;
-    margin-bottom: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(255, 192, 203);
-    padding: 30px;                  
-    border-radius: 20px;            
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
-    max-width: 600px;               
-    margin-left: auto;
-    margin-right: auto;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    max-width: 600px;
+    margin: 40px auto;
+}
+main h1 {
+    font-size: 42px;
+    font-family: 'Comic Sans MS', cursive;
+    margin-bottom: 25px;
+    color: #000000;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
 }
 
 #answers button {
-    margin: 10px 5px;
-    padding: 10px 20px;
     font-size: 22px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    margin: 5px;
+    border: 3px solid #333;
+    background: linear-gradient(135deg, #A0E7E5, #79C7C5);
     cursor: pointer;
-    border-radius: 5px;
-    border: none;
-    background-color: #A0E7E5;
-    border: 2px solid #333; 
-    transition: 0.3s;
+    transition: 0.25s;
 }
 
 #answers button:hover {
-    background-color: #79C7C5;
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #79C7C5, #A0E7E5);
 }
 
+.next-question-btn,
 #restart-btn {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 22px;
-    cursor: pointer;
-    border-radius: 5px;
-    border: none;
-    background-color: #A0E7E5;
-    border-radius: 8px;
-    border: 2px solid #333; 
-    transition: 0.3s;
-}
-
-#restart-btn:hover {
-    background-color: #79C7C5;
-}
-
-#feedback{
-    margin-top: 10px;
+    font-size: 24px;
     font-weight: bold;
+    padding: 14px 32px;
+    border-radius: 12px;
+    border: 3px solid #333;
+    background: linear-gradient(135deg, #ffb3e6, #ff66cc);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.next-question-btn:hover,
+#restart-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ff66cc, #ffb3e6);
+}
+
+#feedback {
     font-size: 22px;
+    font-weight: 800;
+    margin-top: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
 }
 #question {
     text-align: center;
@@ -208,3 +213,5 @@ main {
     color: #000000;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
+
+
