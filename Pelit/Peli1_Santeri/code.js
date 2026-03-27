@@ -1,96 +1,72 @@
 const numbers = [
-    "one", "two", "three", "four", "five",
-    "six", "seven", "eight", "nine", "ten"
+    { num: 1, word: "one" },
+    { num: 2, word: "two" },
+    { num: 3, word: "three" },
+    { num: 4, word: "four" },
+    { num: 5, word: "five" },
+    { num: 6, word: "six" },
+    { num: 7, word: "seven" },
+    { num: 8, word: "eight" },
+    { num: 9, word: "nine" },
+    { num: 10, word: "ten" }
 ];
 
-let currentNumber = 0;
-let round = 1;
-const maxRounds = 8;
+let round = 0;
 let score = 0;
 
-function getRandomOptions(correctIndex) {
-    const options = [numbers[correctIndex]];
-    while (options.length < 4) {
-        const randIndex = Math.floor(Math.random() * numbers.length);
-        const option = numbers[randIndex];
-        if (!options.includes(option)) options.push(option);
-    }
-    return options.sort(() => Math.random() - 0.5);
+function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
 }
 
-function createOptions() {
-    const container = document.getElementById("options-container");
-    container.innerHTML = "";
-
-    const options = getRandomOptions(currentNumber);
-
-    options.forEach(opt => {
-        const label = document.createElement("label");
-        const radio = document.createElement("input");
-        radio.type = "radio";
-        radio.name = "number";
-        radio.value = opt;
-        label.appendChild(radio);
-        label.appendChild(document.createTextNode(" " + opt));
-        container.appendChild(label);
-    });
-}
-
-function newNumber() {
-    currentNumber = Math.floor(Math.random() * numbers.length);
-    document.getElementById("number-display").textContent = currentNumber + 1;
-    document.getElementById("round-number").textContent = round;
-    document.getElementById("message").textContent = "";
-    createOptions();
-}
-
-function checkAnswer() {
-    if (round > maxRounds) return;
-
-    const radios = document.getElementsByName("number");
-    let selected = null;
-    for (const r of radios) if (r.checked) selected = r.value;
-
-    const message = document.getElementById("message");
-    if (!selected) {
-        message.textContent = "Valitse yksi vaihtoehto!";
-        message.style.color = "red";
-        return;
-    }
-
-    if (selected === numbers[currentNumber]) {
-        score++;
-        message.textContent = "Oikein! 🎉";
-        message.style.color = "green";
-    } else {
-        message.textContent = "Väärin!";
-        message.style.color = "red";
-    }
-}
-
-function nextNumber() {
-    if (round >= maxRounds) {
-        const message = document.getElementById("message");
-        message.innerHTML = `<strong>Peli loppui!</strong><br>Oikein vastatut numerot: ${score}/${maxRounds}`;
-
-        // Poistetaan radiobuttonit käytöstä, mutta ne näkyvät edelleen
-        const radios = document.getElementsByName("number");
-        for (const r of radios) r.disabled = true;
-
-        // Poistetaan napit käytöstä
-        document.querySelector("button[onclick='checkAnswer()']").disabled = true;
-        document.querySelector("button[onclick='nextNumber()']").disabled = true;
-
+function nextQuestion() {
+    if (round >= 10) {
+        document.getElementById("question").innerText = "Peli ohi!";
+        document.getElementById("answers").innerHTML = "";
+        document.getElementById("feedback").innerText = "";
+        document.getElementById("score").innerText = "Pisteesi: " + score + "/10";
+        document.getElementById("restart-btn").style.display = "inline-block";
         return;
     }
 
     round++;
-    newNumber();
+    const correct = numbers[Math.floor(Math.random() * numbers.length)];
 
-    // Tyhjennä valinnat
-    const radios = document.getElementsByName("number");
-    for (const r of radios) r.checked = false;
+    document.getElementById("question").innerText = "Mikä on numero " + correct.num + " englanniksi?";
+
+    let options = shuffle([...numbers]).slice(0, 4);
+
+    if (!options.includes(correct)) {
+        options[0] = correct;
+    }
+
+    options = shuffle(options);
+
+    const answersDiv = document.getElementById("answers");
+    answersDiv.innerHTML = "";
+    document.getElementById("feedback").innerText = "";
+
+    options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.innerText = option.word;
+        btn.onclick = () => {
+            if (option.word === correct.word) {
+                score++;
+                document.getElementById("feedback").innerText = "Oikein!";
+            } else {
+                document.getElementById("feedback").innerText = "Väärin! Oikea vastaus oli: " + correct.word;
+            }
+            document.getElementById("score").innerText = "Pisteesi: " + score + "/10";
+            setTimeout(nextQuestion, 1000);
+        };
+        answersDiv.appendChild(btn);
+    });
 }
 
-// Aloita peli
-newNumber();
+function restartGame() {
+    round = 0;
+    score = 0;
+    document.getElementById("restart-btn").style.display = "none";
+    nextQuestion();
+}
+
+nextQuestion();

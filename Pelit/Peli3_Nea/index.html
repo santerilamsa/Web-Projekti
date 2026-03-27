@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animal English Game</title>
+  <link rel="stylesheet" href="../Peli3_Nea/style.css" />
+</head>
+<body>
+<header>
+  <div class="header-container">
+    <h1>English Learn Fun</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html" class="info-btn">Etusivu</a></li>
+         <li>
+          <a href="Infosivu/index.html" class="info-btn">Info</a>
+        </li>
+        <li class="dropdown">
+          <button class="dropbtn">Pelit</button>
+          <div class="dropdown-content">
+            <a href="../Peli1_Santeri/index.html">Peli 1, Numeropeli</a>
+            <a href="../Peli2_Amalia/index.html">Peli 2, Väripeli</a>
+            <a href="../Peli3_Nea/index.html">Peli 3, Eläinpeli</a>
+          </div>
+        </li>
+        
+        <li>
+            <a href="Pisteiden_keräys/index.html" class="info-btn">Pisteet</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+  <div class="game-container">
+    <h1>Learn English fun</h1>
+    <p class="instruction">
+      Valitse oikea eläin mikä kuvassa on.
+    </p>
+
+    <div class="score-box">
+      <span>Score: </span>
+      <span id="score">0</span>
+    </div>
+
+    <div class="animal-card">
+      <div class="animal-image-area" id="animalImageArea">
+        
+        <img id="animalImage" src="" alt="Animal" class="animal-image hidden" />
+         <div id="animalEmoji" class="animal-emoji">🐶</div>
+      </div>
+    </div>
+
+    <div class="options" id="optionsContainer">
+    </div>
+
+    <p id="feedback" class="feedback"></p>
+
+    <div class="buttons">
+      <button id="nextButton">Seuraava</button>
+      <button id="restartButton">Aloita uudelleen</button>
+    </div>
+  </div>
+
+  <script src="../Peli3_Nea/code.js"></script>
+</body>
+</html>
