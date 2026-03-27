@@ -1,14 +1,14 @@
 const numbers = [
-    { num: 1, word: "one" },
-    { num: 2, word: "two" },
-    { num: 3, word: "three" },
-    { num: 4, word: "four" },
-    { num: 5, word: "five" },
-    { num: 6, word: "six" },
-    { num: 7, word: "seven" },
-    { num: 8, word: "eight" },
-    { num: 9, word: "nine" },
-    { num: 10, word: "ten" }
+    { num: 1, word: "One" },
+    { num: 2, word: "Two" },
+    { num: 3, word: "Three" },
+    { num: 4, word: "Four" },
+    { num: 5, word: "Five" },
+    { num: 6, word: "Six" },
+    { num: 7, word: "Seven" },
+    { num: 8, word: "Eight" },
+    { num: 9, word: "Nine" },
+    { num: 10, word: "Ten" }
 ];
 
 let round = 0;
@@ -31,7 +31,8 @@ function nextQuestion() {
     round++;
     const correct = numbers[Math.floor(Math.random() * numbers.length)];
 
-    document.getElementById("question").innerText = "Mikä on numero " + correct.num + " englanniksi?";
+    document.getElementById("question").innerText =
+        "Mikä on numero " + correct.num + " englanniksi?";
 
     let options = shuffle([...numbers]).slice(0, 4);
 
@@ -48,16 +49,28 @@ function nextQuestion() {
     options.forEach(option => {
         const btn = document.createElement("button");
         btn.innerText = option.word;
+
         btn.onclick = () => {
+            // Näytetään palaute
             if (option.word === correct.word) {
                 score++;
                 document.getElementById("feedback").innerText = "Oikein!";
             } else {
-                document.getElementById("feedback").innerText = "Väärin! Oikea vastaus oli: " + correct.word;
+                document.getElementById("feedback").innerText =
+                    "Väärin! Oikea vastaus oli: " + correct.word;
             }
-            document.getElementById("score").innerText = "Pisteesi: " + score + "/10";
-            setTimeout(nextQuestion, 1000);
+
+            document.getElementById("score").innerText =
+                "Pisteesi: " + score + "/10";
+
+            answersDiv.innerHTML = "";
+
+            const nextBtn = document.createElement("button");
+            nextBtn.innerText = "Seuraava kysymys";
+            nextBtn.onclick = nextQuestion;
+            answersDiv.appendChild(nextBtn);
         };
+
         answersDiv.appendChild(btn);
     });
 }

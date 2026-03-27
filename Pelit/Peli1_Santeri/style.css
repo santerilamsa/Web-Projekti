@@ -8,6 +8,10 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-image: url("Images/numeroita.jpg"); /* KUVA TÄHÄN */
+    background-size: cover;       /* kuva täyttää laatikon */
+    background-position: center;  /* keskittää kuvan */
+    background-repeat: no-repeat;
 }
 
 .header-container {
@@ -136,84 +140,31 @@ footer {
     background-color: yellow;
 }
 
-#game-container {
-    background-color: #f5f5dc;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 500px;
-    margin: 0 auto;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-}
-
-#options-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 15px 0;
-}
-
-#options-container label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background-color: rgba(255, 192, 203);
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#options-container label:hover {
-    background-color: yellow;
-}
-
-button {
-    padding: 10px 15px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    background-color: rgba(255, 192, 203);
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: yellow;
-}
-
-#message {
-    margin-top: 15px;
-    font-size: 1.2em;
-}
 main {
     margin-top: 30px;
     margin-bottom: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#game-box {
-    border: 2px solid #333;
-    border-radius: 10px;
-    padding: 20px 40px;
-    max-width: 400px;
-    width: 90%;
-    background-color: #f9f9f9;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    text-align: center;
+    background-color: rgba(255, 192, 203);
+    padding: 30px;                  
+    border-radius: 20px;            
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+    max-width: 600px;               
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #answers button {
     margin: 10px 5px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 22px;
     cursor: pointer;
     border-radius: 5px;
     border: none;
     background-color: #A0E7E5;
-    transition: background-color 0.3s;
+    border: 2px solid #333; 
+    transition: 0.3s;
 }
 
 #answers button:hover {
@@ -221,21 +172,39 @@ main {
 }
 
 #restart-btn {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 22px;
     cursor: pointer;
     border-radius: 5px;
     border: none;
-    background-color: rgba(255, 192, 203);
-    transition: background-color 0.3s;
+    background-color: #A0E7E5;
+    border-radius: 8px;
+    border: 2px solid #333; 
+    transition: 0.3s;
 }
 
 #restart-btn:hover {
-    background-color: yellow;
+    background-color: #79C7C5;
 }
 
-#feedback, #score {
+#feedback{
     margin-top: 10px;
     font-weight: bold;
+    font-size: 22px;
+}
+#question {
+    text-align: center;
+    width: 100%;
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 50px;
+}
+#score {
+    font-size: 2.0em;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
