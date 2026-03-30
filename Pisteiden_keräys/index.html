@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pisteiden Keräys</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="code.js" defer></script>
 </head>
 <body>
+   <header>
+    <div class="header-container">
+      <h1>English Learn Fun</h1>
+      <nav>
+        <ul>
+            <li><a href="/index.html" class="info-btn">Etusivu</a></li>
+          <li class="dropdown">
+            <button class="dropbtn">Pelit</button>
+            <div class="dropdown-content">
+              <a href="/Pelit/Peli1_Santeri/index.html">Peli 1, Numeropeli</a>
+              <a href="../Peli2_Amalia/index.html">Peli 2, Väripeli</a>
+              <a href="../Peli3_Nea/index.html">Peli 3, Eläinpeli</a>
+            </div>
+          </li>
+           <li>
+            <a href="/Infosivu/index.html" class="info-btn">Info</a>
+          </li>
+          <li>
+            <a href="/Pisteiden_keräys/index.html" class="info-btn">Pisteet</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<ul id="pisteLista"></ul>
+<p id="kokonaisPisteet"></p>
+
+<button onclick="tyhjennaPisteet()">Nollaa pisteet</button>
     
 </body>
 </html>
