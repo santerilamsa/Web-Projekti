@@ -13,13 +13,24 @@ const numbers = [
 
 let round = 0;
 let score = 0;
+let gameEnded = false; // 🔥 estää tuplennuksen
 
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
 
 function nextQuestion() {
-    if (round >= 10) {
+    if (round >= 10 && !gameEnded) {
+
+        // 🔥 TALLENNETAAN PARAS TULOS
+        let oldScore = parseInt(localStorage.getItem("peli1_Santeri")) || 0;
+
+        if (score > oldScore) {
+            localStorage.setItem("peli1_Santeri", score);
+        }
+
+        gameEnded = true;
+
         document.getElementById("question").innerText = "Peli ohi!";
         document.getElementById("answers").innerHTML = "";
         document.getElementById("feedback").innerText = "";
@@ -73,7 +84,6 @@ function nextQuestion() {
 
             const nextBtn = document.createElement("button");
             nextBtn.innerText = "Seuraava kysymys";
-            nextBtn.classList.add("next-question-btn");
             nextBtn.onclick = nextQuestion;
             answersDiv.appendChild(nextBtn);
         };
@@ -85,14 +95,12 @@ function nextQuestion() {
 function restartGame() {
     round = 0;
     score = 0;
+    gameEnded = false;
 
-    const scoreBox = document.getElementById("score");
-    scoreBox.style.display = "none";
-
+    document.getElementById("score").style.display = "none";
     document.getElementById("feedback").innerText = "";
     document.getElementById("question").innerText = "";
     document.getElementById("answers").innerHTML = "";
-
     document.getElementById("restart-btn").style.display = "none";
 
     nextQuestion();
