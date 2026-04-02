@@ -1,5 +1,5 @@
 const pelit = [
-    { nimi: "Peli 1 (Santeri)", avain: "peli1_Santeri", max: 10 },
+    { nimi: "Numeropeli", avain: "peli1_Santeri", max: 10 },
     { nimi: "Peli 2", avain: "peli2", max: 10 },
     { nimi: "Peli 3", avain: "peli3", max: 5 }
 ];
