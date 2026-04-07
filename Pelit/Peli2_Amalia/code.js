@@ -16,6 +16,9 @@ function newRound() {
         document.getElementById("result").innerText = "Peli ohi!";
         document.getElementById("score").innerText = "Sait " + score + " / " + maxRounds + " oikein";
 
+        // 👉 TALLENNETAAN PISTEET
+        localStorage.setItem("peli2", score);
+
         document.getElementById("btn1").disabled = true;
         document.getElementById("btn2").disabled = true;
 
@@ -78,6 +81,6 @@ function restartGame() {
 }
 
 // Aloitus
-window.onload = function() {
+window.onload = function () {
     newRound();
 };

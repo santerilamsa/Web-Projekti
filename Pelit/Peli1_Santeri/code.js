@@ -13,7 +13,7 @@ const numbers = [
 
 let round = 0;
 let score = 0;
-let gameEnded = false; // 🔥 estää tuplennuksen
+let gameEnded = false;
 
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
@@ -22,7 +22,6 @@ function shuffle(array) {
 function nextQuestion() {
     if (round >= 10 && !gameEnded) {
 
-        // 🔥 TALLENNETAAN PARAS TULOS
         let oldScore = parseInt(localStorage.getItem("peli1_Santeri")) || 0;
 
         if (score > oldScore) {
