@@ -1,7 +1,7 @@
 const pelit = [
     { nimi: "Numeropeli", avain: "peli1_Santeri", max: 10 },
-    { nimi: "Peli 2", avain: "peli2", max: 10 },
-    { nimi: "Peli 3", avain: "peli3", max: 5 }
+    { nimi: "Väripeli", avain: "peli2", max: 4 },
+    { nimi: "Eläinpeli", avain: "peli3", max: 6 }
 ];
 
 let yhteispisteet = 0;
