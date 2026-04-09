@@ -146,3 +146,7 @@ footer {
 .info-btn:hover {
     background-color: yellow;
 }
+
+main h2 {
+    text-align: center;
+}

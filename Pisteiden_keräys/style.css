@@ -89,7 +89,8 @@ footer {
 }
 
 .dropbtn {
-    background-color: #f5f5dc;
+    background: #f5f5dc !important;
+    color: #333 !important;
     color: #333;
     padding: 10px 20px;
     border: none;
@@ -161,7 +162,6 @@ footer {
     backdrop-filter: blur(10px);
 }
 
-/* Lista */
 #pisteLista {
     list-style: none;
     padding: 0;
@@ -182,7 +182,6 @@ footer {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/* Kokonaispisteet */
 #kokonaisPisteet {
     font-size: 24px;
     font-weight: bold;
@@ -190,7 +189,6 @@ footer {
     color: #333;
 }
 
-/* Nappi */
 button {
     padding: 12px 25px;
     border-radius: 12px;
@@ -199,7 +197,7 @@ button {
     color: white;
     cursor: pointer;
     font-size: 16px;
-    font-weight: bold;
+    /* font-weight: bold; */
     transition: all 0.3s ease;
 }
 
