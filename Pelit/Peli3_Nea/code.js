@@ -140,7 +140,9 @@ function nextRound() {
   if (remainingAnimals.length === 0) {
     optionsContainer.innerHTML = "";
     feedbackElement.textContent = `Game over! Final score: ${score}/${animals.length}`;
-    
+
+    localStorage.setItem("peli3", score);
+
     animalImage.classList.add("hidden");
     animalEmoji.classList.remove("hidden");
     animalEmoji.textContent = "🎉";
